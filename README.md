@@ -73,7 +73,7 @@ myView.translucentStyleLight = false;
 
 ```javascript
 
-var myColor = '#66FF0000' // Red with alpha channel -- '#' + 2 digits hex alpha + 6 digits hex color
+var myColor = '#66FF0000'; // Red with alpha channel -- '#' + 2 digits hex alpha + 6 digits hex color
 
 var myView = blur.createView({
 	translucentColor:myColor
@@ -83,7 +83,7 @@ var myView = blur.createView({
 or
 
 ```javascript
-var myColor = '#6600FF00' // Green with alpha channel -- '#' + 2 digits hex alpha + 6 digits hex color
+var myColor = '#6600FF00'; // Green with alpha channel -- '#' + 2 digits hex alpha + 6 digits hex color
 myView.translucentColor = myColor;
 ```
 
