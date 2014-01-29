@@ -94,6 +94,13 @@ myView.translucentColor = myColor;
 
 ##### Based on [https://github.com/ivoleko/ILTranslucentView](https://github.com/ivoleko/ILTranslucentView)
 
+
+
+###### the image below is a test I'm doing to a new version of the module
+![Blur View preview on movie](test-04.png)
+
+
+
 ## Author
 
 Adriano Paladini
