@@ -5,8 +5,7 @@ Require iOS 8.1 and Titanium SDK 3.4.1.
 
 #### This module is a view with the real time blur effect. Compatible only with iOS 8.1.
 
-![Blur View preview on movie](blur-preview.png)
-##### View with blur effect on top of video to see in real time.
+![Blur View preview](documentation/blur.png)
 
 
 Apple on iOS 7 put some screens on the system with the blur effect like Control or Notification Center. It's a nice effect and many people want to do the same in their applications, and has asked to Appcelerator, which put this feature in titanium.
