@@ -1,8 +1,9 @@
 # LiveBlur Module
+Require iOS 8.1 and Titanium SDK 3.4.1.
 
 ## Description
 
-#### This module is a view with the real time blur effect. Compatible only with iOS 7.
+#### This module is a view with the real time blur effect. Compatible only with iOS 8.1.
 
 ![Blur View preview on movie](blur-preview.png)
 ##### View with blur effect on top of video to see in real time.
@@ -10,15 +11,15 @@
 
 Apple on iOS 7 put some screens on the system with the blur effect like Control or Notification Center. It's a nice effect and many people want to do the same in their applications, and has asked to Appcelerator, which put this feature in titanium.
 
-The Appcelerator does not and can not help much with this feature, for the simple reason of Apple use a custom, private API for this that we don't have access to.
+Many modules are to capture the screen, apply the effect on the image and display it, but it is very expensive for the hardware and does not give the effect in real time.
 
-Many modules are to capture the screen, apply the effect on the image and display it, but it is very expensive for the hardware and does not give the effect in real time. 
+Now in iOS 8.1 Apple release a API to use this effect.
 
-If we use a private API, the application will never be approved by Apple.
+This module use a native and public API from Apple to create a blur view.
 
-But Apple gave a component that can be used and makes this end, the **UIToolbar**.
+This module can be published in Apple Store.
 
-Is it an elegant and clean solution? Certainly not, UIToolbar should only be used as a toolbar. But if you really want a realtime blurred UIView it may just be the only way to go as long as Apple does not provide this API. Will it be rejected? No.
+This module is ready for 64-bit support.
 
 
 ### Get the module
@@ -31,7 +32,7 @@ Is it an elegant and clean solution? Certainly not, UIToolbar should only be use
 To access this module from JavaScript, you would do the following:
 
 ```javascript
-var blur = require("com.widbook.blur");
+var blur = require("com.apaladini.blur");
 ```
 
 The blur variable is a reference to the Module object.
@@ -51,54 +52,25 @@ var myView = blur.createView();
 This view has its own properties
 
 
-### translucentStyleLight
+### style
 
-*Boolean*, **true** (default) for Light color and **false** for Dark
+*Integer*, **0** (default) for Light, **1** for Dark and **2** for ExtraLight
 
 ```javascript
 var myView = blur.createView({
-	translucentStyleLight:false
+	style:1
 });
 ```
 
 or
 
 ```javascript
-myView.translucentStyleLight = false;
-```
-
-### translucentColor
-
-*Color*, if you need colorize, use color with alpha values
-
-```javascript
-
-var myColor = '#66FF0000'; // Red with alpha channel -- '#' + 2 digits hex alpha + 6 digits hex color
-
-var myView = blur.createView({
-	translucentColor:myColor
-});
-```
-
-or
-
-```javascript
-var myColor = '#6600FF00'; // Green with alpha channel -- '#' + 2 digits hex alpha + 6 digits hex color
-myView.translucentColor = myColor;
+myView.style = 1;
 ```
 
 
 
 ## This is a module that I'm still working to improve it
-
-
-##### Based on [https://github.com/ivoleko/ILTranslucentView](https://github.com/ivoleko/ILTranslucentView)
-
-
-
-###### the image below is a test I'm doing to a new version of the module
-![Blur View preview on movie](test-04.png)
-
 
 
 ## Author

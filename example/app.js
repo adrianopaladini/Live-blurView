@@ -1,6 +1,6 @@
 
 // Load Module
-var blur = require('com.widbook.blur');
+var blur = require('com.apaladini.blur');
 
 // Create a Window
 var window = Ti.UI.createWindow();
@@ -10,62 +10,57 @@ var video = Titanium.Media.createVideoPlayer({
     autoplay : true,
     mediaControlStyle : Titanium.Media.VIDEO_CONTROL_DEFAULT,
     scalingMode : Titanium.Media.VIDEO_SCALING_MODE_FILL,
-    url: 'http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov'
+    url: 'http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/BigBuckBunny_640x360.m4v'
 });
 
 
 // create White view
 var blurViewLight = blur.createView({
-    top:40,
-    height:120,
-    width:220,
-    borderRadius:20
+    top:0,
+    height:100,
+    width:Ti.UI.FILL,
+    style:0
 });
 
 // create black view
 var blurViewDark = blur.createView({
-    top:200,
-    height:120,
-    width:220,
-    translucentStyleLight:false
+    top:100,
+    height:100,
+    width:Ti.UI.FILL,
+    style:1
 });
 
-// create label
-var label = Ti.UI.createLabel({
-    text:'My label'
+// create extraLight view
+var blurViewExtraLight = blur.createView({
+    top:200,
+    height:100,
+    width:Ti.UI.FILL,
+    style:2
+});
+
+// create labels
+var label1 = Ti.UI.createLabel({
+    text:'Light'
+});
+var label2 = Ti.UI.createLabel({
+    text:'Dark',
+    color:'#FFF'
+});
+var label3 = Ti.UI.createLabel({
+    text:'Extra Light'
 });
 
 
 // Add labels to views
-blurViewLight.add(label);
+blurViewLight.add(label1);
+blurViewDark.add(label2);
+blurViewExtraLight.add(label3);
 
 // add video and view to window
 window.add(video);
 window.add(blurViewLight);
 window.add(blurViewDark);
+window.add(blurViewExtraLight);
 
 // open window
 window.open();
-
-
-
-
-
-// click on white blur view
-blurViewLight.addEventListener('click', function(){
-    
-    // change to white
-    blurViewDark.translucentStyleLight=true;
-    
-    // create a green color with alpha
-    alpha = '55';
-    color = '44DD44';
-    colorWithAlpha = '#' + alpha + color; // == '#5544DD44'
-    
-    // change tint of dark view
-    blurViewLight.translucentColor = colorWithAlpha;
-    
-});
-
-
-

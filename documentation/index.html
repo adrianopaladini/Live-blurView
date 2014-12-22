@@ -749,24 +749,23 @@ body .task-list{
   color:#A31515
 }</style><title>README</title></head><body><h1>
 <a name="liveblur-module" class="anchor" href="#liveblur-module"><span class="octicon octicon-link"></span></a>LiveBlur Module</h1>
+<p>Require iOS 8.1 and Titanium SDK 3.4.1.</p>
 
 <h2>
 <a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
 
 <h4>
-<a name="this-module-is-a-view-with-the-real-time-blur-effect-compatible-only-with-ios-7" class="anchor" href="#this-module-is-a-view-with-the-real-time-blur-effect-compatible-only-with-ios-7"><span class="octicon octicon-link"></span></a>This module is a view with the real time blur effect. Compatible only with iOS 7.</h4>
+<a name="this-module-is-a-view-with-the-real-time-blur-effect-compatible-only-with-ios-7" class="anchor" href="#this-module-is-a-view-with-the-real-time-blur-effect-compatible-only-with-ios-7"><span class="octicon octicon-link"></span></a>This module is a view with the real time blur effect. Compatible only with iOS 8.1</h4>
 
 <p>Apple on iOS 7 put some screens on the system with the blur effect like Control or Notification Center. It's a nice effect and many people want to do the same in their applications, and has asked to Appcelerator, which put this feature in titanium.</p>
 
-<p>The Appcelerator does not and can not help much with this feature, for the simple reason of Apple use a custom, private API for this that we don't have access to.</p>
-
 <p>Many modules are to capture the screen, apply the effect on the image and display it, but it is very expensive for the hardware and does not give the effect in real time. </p>
 
-<p>If we use a private API, the application will never be approved by Apple.</p>
+<p>Now in iOS 8.1 Apple release a API to use this effect.</p>
 
-<p>But Apple gave a component that can be used and makes this end, the <strong>UIToolbar</strong>.</p>
-
-<p>Is it an elegant and clean solution? Certainly not, UIToolbar should only be used as a toolbar. But if you really want a realtime blurred UIView it may just be the only way to go as long as Apple does not provide this API. Will it be rejected? No.</p>
+<p>This module use a native and public API from Apple to create a blur view.</p>
+<p>This module can be published in Apple Store.</p>
+<p>This module is ready for 64-bit support.</p>
 
 <h3>
 <a name="get-the-module" class="anchor" href="#get-the-module"><span class="octicon octicon-link"></span></a>Get the module</h3>
@@ -778,7 +777,7 @@ body .task-list{
 
 <p>To access this module from JavaScript, you would do the following:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">blur</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"com.widbook.blur"</span><span class="p">);</span>
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">blur</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"com.apaladini.blur"</span><span class="p">);</span>
 </pre></div>
 
 <p>The blur variable is a reference to the Module object.</p>
@@ -789,7 +788,7 @@ body .task-list{
 <h3>
 <a name="createview" class="anchor" href="#createview"><span class="octicon octicon-link"></span></a>createView</h3>
 
-<p>Simple, create a view with (almost) all the properties of the native view of Titanium. Just do not have the 'backgroundColor' properties and 'backgroundImage'.</p>
+<p>Simple, create a view with all the properties of the native view of Titanium.</p>
 
 <div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">myView</span> <span class="o">=</span> <span class="nx">blur</span><span class="p">.</span><span class="nx">createView</span><span class="p">();</span>
 </pre></div>
@@ -800,45 +799,23 @@ body .task-list{
 <p>This view has its own properties</p>
 
 <h3>
-<a name="translucentstylelight" class="anchor" href="#translucentstylelight"><span class="octicon octicon-link"></span></a>translucentStyleLight</h3>
+<a name="translucentstylelight" class="anchor" href="#translucentstylelight"><span class="octicon octicon-link"></span></a>style</h3>
 
-<p><em>Boolean</em>, <strong>true</strong> (default) for Light color and <strong>false</strong> for Dark</p>
+<p><em>Integer</em>, <strong>0</strong> (default) for Light, <strong>1</strong> for Dark and <strong>2</strong> for ExtraLight</p>
 
 <div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">myView</span> <span class="o">=</span> <span class="nx">blur</span><span class="p">.</span><span class="nx">createView</span><span class="p">({</span>
-    <span class="nx">translucentStyleLight</span><span class="o">:</span><span class="kc">false</span>
+    <span class="nx">style</span><span class="o">:</span><span class="kc">1</span>
 <span class="p">});</span>
 </pre></div>
 
 <p>or</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">myView</span><span class="p">.</span><span class="nx">translucentStyleLight</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="nx">myView</span><span class="p">.</span><span class="nx">style</span> <span class="o">=</span> <span class="kc">1</span><span class="p">;</span>
 </pre></div>
 
-<h3>
-<a name="translucentcolor" class="anchor" href="#translucentcolor"><span class="octicon octicon-link"></span></a>translucentColor</h3>
-
-<p><em>Color</em>, if you need colorize, use color with alpha values</p>
-
-<div class="highlight highlight-javascript"><pre>
-<span class="kd">var</span> <span class="nx">myColor</span> <span class="o">=</span> <span class="s1">'#66FF0000'</span> <span class="c1">// Red with alpha channel -- '#' + 2 digits hex alpha + 6 digits hex color</span>
-
-<span class="kd">var</span> <span class="nx">myView</span> <span class="o">=</span> <span class="nx">blur</span><span class="p">.</span><span class="nx">createView</span><span class="p">({</span>
-    <span class="nx">translucentColor</span><span class="o">:</span><span class="nx">myColor</span>
-<span class="p">});</span>
-</pre></div>
-
-<p>or</p>
-
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">myColor</span> <span class="o">=</span> <span class="s1">'#6600FF00'</span> <span class="c1">// Green with alpha channel -- '#' + 2 digits hex alpha + 6 digits hex color</span>
-<span class="nx">myView</span><span class="p">.</span><span class="nx">translucentColor</span> <span class="o">=</span> <span class="nx">myColor</span><span class="p">;</span>
-</pre></div>
 
 <h2>
 <a name="this-is-a-module-that-im-still-working-to-improve-it" class="anchor" href="#this-is-a-module-that-im-still-working-to-improve-it"><span class="octicon octicon-link"></span></a>This is a module that I'm still working to improve it</h2>
-
-<h5>
-<a name="based-on-httpsgithubcomivolekoiltranslucentview" class="anchor" href="#based-on-httpsgithubcomivolekoiltranslucentview"><span class="octicon octicon-link"></span></a>Based on <a href="https://github.com/ivoleko/ILTranslucentView">https://github.com/ivoleko/ILTranslucentView</a>
-</h5>
 
 <h2>
 <a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>

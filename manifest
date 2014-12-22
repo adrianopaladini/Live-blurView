@@ -1,18 +1,8 @@
-#
-# this is your module manifest and used by Titanium
-# during compilation, packaging, distribution, etc.
-#
-version: 0.1
-apiversion: 2
-description: -
-author: Adriano Paladini
-license: -
-copyright: -
-
-
-# these should not be edited
-name: liveblur
-moduleid: com.widbook.blur
-guid: 9ccf29af-3c1f-41c5-b339-c25e08b275e1
-platform: iphone
-minsdk: 3.1.3.GA
+#appname: ios8blur
+#publisher: adrianopaladini
+#url: 
+#image: appicon.png
+#appid: com.apaladini.blur
+#desc: undefined
+#type: module
+#guid: 7110637a-9b52-498f-a386-6ef9404bc378
