@@ -15,3 +15,4 @@ moduleid: com.apaladini.blur
 guid: 5245ba2e-e25e-443b-ad79-5000378ba39d
 platform: iphone
 minsdk: 3.4.1.GA
+architectures: armv7 i386 x86_64 arm64
