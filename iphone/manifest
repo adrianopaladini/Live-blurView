@@ -4,13 +4,13 @@
 #
 version: 1.0.0
 apiversion: 2
-description: ios8blur
-author: Your Name
-license: Specify your license
-copyright: Copyright (c) 2014 by Your Company
+description: A True Real Time BlurView implementation for Titanium
+author: Adriano Paladini
+license: MIT
+copyright: Copyright (c) 2014 by Adriano Paladini
 
 # these should not be edited
-name: ios8blur
+name: Live-BlurView
 moduleid: com.apaladini.blur
 guid: 5245ba2e-e25e-443b-ad79-5000378ba39d
 platform: iphone
