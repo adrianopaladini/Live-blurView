@@ -1,9 +1,9 @@
 # LiveBlur Module
-Require iOS 8.1 and Titanium SDK 3.4.1.
+Require iOS 8.0 and Titanium SDK 3.4.1.
 
 ## Description
 
-#### This module is a view with the real time blur effect. Compatible only with iOS 8.1.
+#### This module is a view with the real time blur effect. Compatible only with iOS 8.0 or newer.
 
 ![Blur View preview](documentation/blur.png)
 
@@ -12,7 +12,7 @@ Apple on iOS 7 put some screens on the system with the blur effect like Control 
 
 Many modules are to capture the screen, apply the effect on the image and display it, but it is very expensive for the hardware and does not give the effect in real time.
 
-Now in iOS 8.1 Apple release a API to use this effect.
+Now in iOS 8.0 Apple release a API to use this effect.
 
 This module use a native and public API from Apple to create a blur view.
 
@@ -53,18 +53,18 @@ This view has its own properties
 
 ### style
 
-*Integer*, **0** (default) for Light, **1** for Dark and **2** for ExtraLight
+*Integer*, **0** for Dark, **1** (default) for Light and **2** for ExtraLight
 
 ```javascript
 var myView = blur.createView({
-	style:1
+	style:0
 });
 ```
 
 or
 
 ```javascript
-myView.style = 1;
+myView.style = 0;
 ```
 
 

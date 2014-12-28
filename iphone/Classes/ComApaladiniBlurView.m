@@ -38,21 +38,21 @@
 
 
 - (void) createUI {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.1")) {
-        
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+
         blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         blurEffectView.frame = self.bounds;
-        
+
         /*
         vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
         vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
         vibrancyEffectView.frame = self.bounds;
         [blurEffectView addSubview:vibrancyEffectView];
          */
-        
+
         [self insertSubview:blurEffectView atIndex:0];
-        
+
         initComplete=YES;
     }
 }
@@ -96,7 +96,7 @@
     }
     else
         [super insertSubview:view atIndex:index];
-    
+
 }
 
 - (void) exchangeSubviewAtIndex:(NSInteger)index1 withSubviewAtIndex:(NSInteger)index2 {
@@ -133,16 +133,16 @@
 - (void) setStyle_:(id)value {
     int style = [TiUtils intValue:value];
     UIBlurEffect *fx;
-    if(style==1){
+    if(style==0){
         fx = UIBlurEffectStyleDark;
     }else if(style==2){
         fx = UIBlurEffectStyleExtraLight;
     }else{
         fx = UIBlurEffectStyleLight;
     }
-    
+
     blurEffect = [UIBlurEffect effectWithStyle:fx];
-    
+
     blurEffectView.removeFromSuperview;
     blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     blurEffectView.frame = parentArea.bounds;
@@ -153,11 +153,11 @@
 - (void) setVibrancy_:(id)value {
     BOOL vib = [TiUtils boolValue:value];
 
-    
+
     if(visualEffectView!=nil){
         visualEffectView.removeFromSuperview;
     }
-    
+
     if(vib){
         blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
@@ -170,4 +170,3 @@
 
 
 @end
-

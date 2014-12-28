@@ -19,7 +19,7 @@ var blurViewLight = blur.createView({
     top:0,
     height:100,
     width:Ti.UI.FILL,
-    style:0
+    style:1
 });
 
 // create black view
@@ -27,7 +27,7 @@ var blurViewDark = blur.createView({
     top:100,
     height:100,
     width:Ti.UI.FILL,
-    style:1
+    style:0
 });
 
 // create extraLight view
